@@ -20,9 +20,13 @@ namespace _2C2PDB.Model
 
         public decimal Amount { get; set; }
 
-        public int CurrencyCode { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string CurrencyCode { get; set; }
 
-        public int Status { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string Status { get; set; }
 
 
         public virtual Customer Customer { get; set; }

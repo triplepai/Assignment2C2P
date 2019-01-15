@@ -11,21 +11,21 @@ namespace _2C2PDB.Model
     public class BaseModel
     {
         [Required]
-        [Column("CreateDate")]
-        public DateTime CreateDate { get; set; }
+        [Column("CreatedDate")]
+        public DateTime CreatedDate { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Column("CreateBy")]
-        public string CreateBy { get; set; }
+        [Column("CreatedBy")]
+        public string CreatedBy { get; set; }
 
         [Required]
-        [Column("ModifyDate")]
-        public DateTime ModifyDate { get; set; }
+        [Column("ModifiedDate")]
+        public DateTime ModifiedDate { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Column("ModifyBy")]
-        public string ModifyBy { get; set; }
+        [Column("ModifiedBy")]
+        public string ModifiedBy { get; set; }
     }
 }
