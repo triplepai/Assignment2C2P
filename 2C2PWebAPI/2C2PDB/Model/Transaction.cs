@@ -7,7 +7,7 @@ namespace _2C2PDB.Model
     using System.Data.Entity.Spatial;
 
     [Table("Transaction")]
-    public partial class Transaction
+    public partial class Transaction : BaseModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
@@ -24,18 +24,6 @@ namespace _2C2PDB.Model
 
         public int Status { get; set; }
 
-        [Column(TypeName = "datetime2")]
-        public DateTime CreatedDate { get; set; }
-
-        [Column(TypeName = "datetime2")]
-        public DateTime? ModifiedDate { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string CreatedBy { get; set; }
-
-        [StringLength(50)]
-        public string ModifiedBy { get; set; }
 
         public virtual Customer Customer { get; set; }
     }

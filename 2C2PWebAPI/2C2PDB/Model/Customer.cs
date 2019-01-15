@@ -7,7 +7,7 @@ namespace _2C2PDB.Model
     using System.Data.Entity.Spatial;
 
     [Table("Customer")]
-    public partial class Customer
+    public partial class Customer : BaseModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
@@ -20,7 +20,11 @@ namespace _2C2PDB.Model
 
         [Required]
         [StringLength(30)]
-        public string CustomerName { get; set; }
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        public string LastName { get; set; }
 
         [Required]
         [StringLength(25)]
@@ -28,18 +32,7 @@ namespace _2C2PDB.Model
 
         public int MobileNo { get; set; }
 
-        [Column(TypeName = "datetime2")]
-        public DateTime CreatedDate { get; set; }
 
-        [Column(TypeName = "datetime2")]
-        public DateTime? ModifiedDate { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string CreatedBy { get; set; }
-
-        [StringLength(50)]
-        public string ModifiedBy { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transaction> Transactions { get; set; }
