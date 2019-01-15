@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2C2PWebAPI", "2C2PWebAPI\2C2PWebAPI.csproj", "{F3DE2EB5-8ED3-464B-936C-6C5A3BC08DF4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2C2PDB", "2C2PDB\2C2PDB.csproj", "{7471F1AD-8E0F-4971-A222-14B3852194D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2C2PWebAPI", "2C2PWebAPI\2C2PWebAPI.csproj", "{7FE02125-343E-4A35-A439-F11B68021510}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F3DE2EB5-8ED3-464B-936C-6C5A3BC08DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3DE2EB5-8ED3-464B-936C-6C5A3BC08DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3DE2EB5-8ED3-464B-936C-6C5A3BC08DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3DE2EB5-8ED3-464B-936C-6C5A3BC08DF4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7471F1AD-8E0F-4971-A222-14B3852194D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7471F1AD-8E0F-4971-A222-14B3852194D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7471F1AD-8E0F-4971-A222-14B3852194D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7471F1AD-8E0F-4971-A222-14B3852194D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE02125-343E-4A35-A439-F11B68021510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE02125-343E-4A35-A439-F11B68021510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE02125-343E-4A35-A439-F11B68021510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE02125-343E-4A35-A439-F11B68021510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
