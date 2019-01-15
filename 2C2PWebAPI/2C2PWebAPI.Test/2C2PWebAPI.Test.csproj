@@ -63,6 +63,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\2C2PDB\2C2PDB.csproj">
+      <Project>{7471f1ad-8e0f-4971-a222-14b3852194d9}</Project>
+      <Name>2C2PDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\2C2PWebAPI\2C2PWebAPI.csproj">
+      <Project>{7fe02125-343e-4a35-a439-f11b68021510}</Project>
+      <Name>2C2PWebAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
