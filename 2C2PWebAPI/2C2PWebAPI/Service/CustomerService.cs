@@ -37,7 +37,23 @@ namespace _2C2PWebAPI.Service
                     Status = transaction.Status.ToString()
                 });
             }
+      
             return new CustomerModel();
+        }
+        private void ValidateModel(CustomerRequestModel request)
+        {
+            if (string.IsNullOrEmpty(request.Email)|| request.CustomerID==0)
+            {
+                throw new NullReferenceException("Please specific parametor at least 1 parameter");
+            }
+            else if (request.Email.Length > 25)
+            {
+                throw new FormatException("Please specific email should not more than 25 character");
+            }
+            else if (Convert.ToString(request.CustomerID).Length > 10)
+            {
+                throw new FormatException("Please specific customer ID should not more than 10 digit");
+            }
         }
     }
 }
