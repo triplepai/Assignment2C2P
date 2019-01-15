@@ -24,15 +24,16 @@ namespace _2C2PWebAPI.Service
             ValidateModel(request);
 
             Customer customer = null;
-            if (request.CustomerID >0 && !string.IsNullOrEmpty(request.Email))
+            int customerID = Convert.ToInt32(request.CustomerID);
+            if (!string.IsNullOrEmpty(request.CustomerID) && !string.IsNullOrEmpty(request.Email))
             {
-                customer = customerRepository.Find(c => c.ID == request.CustomerID && c.ContactEmail == request.Email);
+                customer = customerRepository.Find(c => c.ID == customerID && c.ContactEmail == request.Email);
             }
-            else if (request.CustomerID > 0 && string.IsNullOrEmpty(request.Email))
+            else if (!string.IsNullOrEmpty(request.CustomerID) && string.IsNullOrEmpty(request.Email))
             {
-                customer = customerRepository.Find(c => c.ID == request.CustomerID );
+                customer = customerRepository.Find(c => c.ID == customerID);
             }
-            else if (request.CustomerID == 0 && !string.IsNullOrEmpty(request.Email))
+            else if (string.IsNullOrEmpty(request.CustomerID) && !string.IsNullOrEmpty(request.Email))
             {
                 customer = customerRepository.Find(c => c.ContactEmail == request.Email);
             }
@@ -62,15 +63,15 @@ namespace _2C2PWebAPI.Service
         }
         private void ValidateModel(CustomerRequestModel request)
         {
-            if (string.IsNullOrEmpty(request.Email) && request.CustomerID == 0)
+            if (string.IsNullOrEmpty(request.CustomerID) && string.IsNullOrEmpty(request.Email))
             {
                 throw new NullReferenceException("No inquiry criteria");
             }
-            else if (!string.IsNullOrEmpty(request.Email) && request.Email.Length > 25)
+            else if (!string.IsNullOrEmpty(request.CustomerID) && request.CustomerID.Length > 10)
             {
                 throw new FormatException("Invalid Customer ID");
             }
-            else if (Convert.ToString(request.CustomerID).Length > 10)
+            else if (!string.IsNullOrEmpty(request.Email) && request.Email.Length > 25)
             {
                 throw new FormatException("Invalude Email");
             }

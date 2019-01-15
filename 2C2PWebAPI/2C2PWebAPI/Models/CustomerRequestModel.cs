@@ -9,7 +9,7 @@ namespace _2C2PWebAPI.Models
     public class CustomerRequestModel
     {
         [JsonProperty("customerID")]
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }
