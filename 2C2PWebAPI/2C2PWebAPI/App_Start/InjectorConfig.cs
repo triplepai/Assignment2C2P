@@ -12,6 +12,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using _2C2PWebAPI.Service.Interface;
 using _2C2PWebAPI.Service;
+using _2C2PDB.Model;
+using _2C2PDB.Repository.Interface;
+using _2C2PDB.Repository;
 
 namespace _2C2PWebAPI.App_Start
 {
@@ -29,9 +32,11 @@ namespace _2C2PWebAPI.App_Start
             container.Register<ICustomerService, CustomerService>();
 
             // Register Repository
-
+            container.Register<IRepository<Customer, Guid>, Repository<Customer, Guid>>(Lifestyle.Scoped);
+            container.Register<IRepository<Transaction, Guid>, Repository<Transaction, Guid>>(Lifestyle.Scoped);
 
             // Register Context
+            container.Register<DBContext, DBContext>(Lifestyle.Scoped);
 
 
             // Register MVC Controller(IController) and Web API Controller(IHTTPController)
