@@ -7,11 +7,11 @@
 * C# API
 * Unit test
 * Entity framework
-* SQL server
+
 
 ## Prerequisites
-Visual Studio
-SQL Server
+* Visual Studio
+* SQL Server
 
 
 ## How to run API
