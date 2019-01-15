@@ -58,15 +58,15 @@ namespace _2C2PWebAPI.Service
                 });
             }
       
-            return new CustomerModel();
+            return result;
         }
         private void ValidateModel(CustomerRequestModel request)
         {
-            if (string.IsNullOrEmpty(request.Email)|| request.CustomerID==0)
+            if (string.IsNullOrEmpty(request.Email) && request.CustomerID == 0)
             {
                 throw new NullReferenceException("No inquiry criteria");
             }
-            else if (request.Email.Length > 25)
+            else if (!string.IsNullOrEmpty(request.Email) && request.Email.Length > 25)
             {
                 throw new FormatException("Invalid Customer ID");
             }

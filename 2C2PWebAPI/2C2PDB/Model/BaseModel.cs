@@ -21,7 +21,7 @@ namespace _2C2PDB.Model
 
         [Required]
         [Column("ModifiedDate")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         [Required]
         [StringLength(50)]

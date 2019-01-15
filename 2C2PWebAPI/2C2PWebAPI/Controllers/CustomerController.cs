@@ -25,7 +25,6 @@ namespace _2C2PWebAPI.Controllers
         {
             try
             {
-
                 return Response(customerService.GetCustomer(request)).Success();
             }
             catch (Exception ex)
