@@ -23,9 +23,6 @@ namespace _2C2PDB.Model
                 .HasForeignKey(e => e.CustomerFK)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Transaction>()
-                .Property(e => e.TransactionDate)
-                .IsFixedLength();
 
             modelBuilder.Entity<Transaction>()
                 .Property(e => e.Amount)

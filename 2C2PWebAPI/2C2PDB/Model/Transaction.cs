@@ -12,9 +12,7 @@ namespace _2C2PDB.Model
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string TransactionDate { get; set; }
+        public DateTime TransactionDate { get; set; }
 
         public int CustomerFK { get; set; }
 

@@ -20,7 +20,27 @@ namespace _2C2PWebAPI.Service
         }
         public CustomerModel GetCustomer(CustomerRequestModel request)
         {
-            Customer customer = customerRepository.Find(c => c.ID == request.CustomerID);
+            
+            ValidateModel(request);
+
+            Customer customer = null;
+            if (request.CustomerID >0 && !string.IsNullOrEmpty(request.Email))
+            {
+                customer = customerRepository.Find(c => c.ID == request.CustomerID && c.ContactEmail == request.Email);
+            }
+            else if (request.CustomerID > 0 && string.IsNullOrEmpty(request.Email))
+            {
+                customer = customerRepository.Find(c => c.ID == request.CustomerID );
+            }
+            else if (request.CustomerID == 0 && !string.IsNullOrEmpty(request.Email))
+            {
+                customer = customerRepository.Find(c => c.ContactEmail == request.Email);
+            }
+            if (customer == null)
+            {
+                throw new NullReferenceException("Not found");
+            }
+
             CustomerModel result = new CustomerModel();
             result.CustomerID = customer.ID;
             result.Name = customer.FirstName +" "+ customer.LastName;
@@ -31,7 +51,7 @@ namespace _2C2PWebAPI.Service
                 result.Transactions.Add(new TransactionModel
                 {
                     ID = transaction.ID,
-                    Date = transaction.TransactionDate,
+                    Date = transaction.TransactionDate.ToString("dd/MM/yyyy HH:mm"),
                     Amount = transaction.Amount,
                     Currency = transaction.CurrencyCode.ToString(),
                     Status = transaction.Status.ToString()
@@ -44,15 +64,15 @@ namespace _2C2PWebAPI.Service
         {
             if (string.IsNullOrEmpty(request.Email)|| request.CustomerID==0)
             {
-                throw new NullReferenceException("Please specific parametor at least 1 parameter");
+                throw new NullReferenceException("No inquiry criteria");
             }
             else if (request.Email.Length > 25)
             {
-                throw new FormatException("Please specific email should not more than 25 character");
+                throw new FormatException("Invalid Customer ID");
             }
             else if (Convert.ToString(request.CustomerID).Length > 10)
             {
-                throw new FormatException("Please specific customer ID should not more than 10 digit");
+                throw new FormatException("Invalude Email");
             }
         }
     }
